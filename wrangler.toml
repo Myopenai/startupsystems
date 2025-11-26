@@ -1,0 +1,23 @@
+name = "startupsystems"
+main = "workers/index.ts"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[env.production]
+name = "startupsystems-prod"
+route = { pattern = "startupsystems.com/*", zone_name = "startupsystems.com" }
+
+[env.staging]
+name = "startupsystems-staging"
+
+[vars]
+ENVIRONMENT = "development"
+
+[build]
+command = "npm run build:workers"
+
+[[rules]]
+type = "Text"
+globs = ["**/*.ts", "**/*.js"]
+fallthrough = true
+

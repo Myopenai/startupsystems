@@ -70,4 +70,3 @@ MIT License - see LICENSE file for details
 **Status**: 🟢 Active Development  
 **Version**: 1.0.0  
 **Cloudflare Workers**: ✅ Live Online
-

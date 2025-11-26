@@ -12,6 +12,13 @@ name = "startupsystems-staging"
 
 [vars]
 ENVIRONMENT = "development"
+JWT_SECRET = "gcc-secret-key-change-in-production-2025"
+
+# Cloudflare D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "startupsystems-db"
+database_id = "" # Set this after creating the database
 
 [build]
 command = "npm run build:workers"
@@ -20,4 +27,3 @@ command = "npm run build:workers"
 type = "Text"
 globs = ["**/*.ts", "**/*.js"]
 fallthrough = true
-

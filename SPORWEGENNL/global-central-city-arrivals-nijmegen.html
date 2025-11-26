@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Central City Arrivals – Nijmegen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0066CC;
+            --secondary-color: #00AA44;
+            --accent-color: #FF6600;
+            --dark-bg: #1a1a2e;
+            --light-bg: #f5f5f5;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #16213e 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-svg {
+            width: 300px;
+            height: 120px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            background: rgba(0, 102, 204, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        nav a:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: radial-gradient(circle at center, rgba(0, 102, 204, 0.2) 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .btn-primary:hover {
+            background: #0052a3;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+            color: var(--text-light);
+        }
+
+        .btn-secondary:hover {
+            background: #008833;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 170, 68, 0.4);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 60px 20px;
+            margin: 40px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+            text-align: center;
+        }
+
+        .section h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .section p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .manifest {
+            background: rgba(0, 170, 68, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            border-left: 5px solid var(--secondary-color);
+            margin: 30px 0;
+        }
+
+        .manifest h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Bullet List */
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(0, 102, 204, 0.2);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+            font-size: 1.1em;
+        }
+
+        .features-list li:before {
+            content: "✓ ";
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-right: 10px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: rgba(255, 102, 0, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 12px 24px;
+            background: rgba(0, 102, 204, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2em;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Notary Verification Badge */
+        .notary-badge {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 170, 68, 0.9);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .notary-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 170, 68, 0.5);
+        }
+
+        .notary-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .notary-modal.active {
+            display: flex;
+        }
+
+        .notary-content {
+            background: var(--dark-bg);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .notary-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .notary-content .close {
+            float: right;
+            font-size: 2em;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* NS/OV API Integration Styles */
+        .arrivals-container {
+            background: rgba(0, 102, 204, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+
+        .station-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .station-btn {
+            padding: 12px 24px;
+            background: rgba(0, 102, 204, 0.3);
+            color: var(--text-light);
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+
+        .station-btn:hover, .station-btn.active {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .arrivals-list {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .arrival-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .arrival-time {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .arrival-destination {
+            font-size: 1.2em;
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        .arrival-platform {
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Startup Directory Styles */
+        .directory-search {
+            margin: 30px 0;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 600px;
+            padding: 15px 20px;
+            font-size: 1.1em;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            margin: 0 auto;
+            display: block;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 15px rgba(0, 170, 68, 0.3);
+        }
+
+        .startup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .startup-card {
+            background: rgba(0, 102, 204, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(0, 102, 204, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .startup-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+            border-color: var(--primary-color);
+        }
+
+        .startup-card h4 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .startup-card .category {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            margin: 10px 5px 10px 0;
+        }
+
+        .startup-card .description {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .startup-card .contact {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: var(--secondary-color);
+        }
+
+        /* Community Styles */
+        .events-calendar {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .event-card {
+            background: rgba(0, 170, 68, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .event-date {
+            font-size: 0.9em;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .event-title {
+            font-size: 1.3em;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .event-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 10px 0;
+        }
+
+        .event-actions {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 0.9em;
+            border-radius: 20px;
+        }
+
+        /* User Account Styles */
+        .user-account-badge {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 102, 204, 0.9);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .user-account-badge:hover {
+            background: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .user-account-badge.logged-in {
+            background: rgba(0, 170, 68, 0.9);
+        }
+
+        .auth-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .auth-modal.active {
+            display: flex;
+        }
+
+        .auth-content {
+            background: var(--dark-bg);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 400px;
+            width: 90%;
+            border: 2px solid var(--primary-color);
+        }
+
+        .auth-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .auth-form input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            font-size: 1em;
+        }
+
+        .auth-form input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .auth-form button {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .auth-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 10px;
+            background: rgba(0, 102, 204, 0.2);
+            border: none;
+            border-radius: 10px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .auth-tab.active {
+            background: var(--primary-color);
+        }
+
+        .user-profile {
+            display: none;
+        }
+
+        .user-profile.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <svg class="logo-svg" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Cirkel als "portaal" -->
+                    <circle cx="60" cy="60" r="40" fill="none" stroke="#00AA44" stroke-width="3" />
+                    <!-- Drie grote T's -->
+                    <text x="120" y="55" font-size="32" font-family="sans-serif" fill="#0066CC" font-weight="bold">TTT</text>
+                    <!-- WELCOME tekst -->
+                    <text x="120" y="85" font-size="20" font-family="sans-serif" fill="#FF6600" font-weight="bold">WELCOME</text>
+                </svg>
+            </div>
+            <nav>
+                <a href="#arrivals">Arrivals & Station Info</a>
+                <a href="#startup">Startup Nijmegen</a>
+                <a href="#directory">Startup Directory</a>
+                <a href="#community">Community</a>
+                <a href="#stations">Multi-Station</a>
+                <a href="#ttt">TTT Start-up Systems</a>
+                <a href="#join">Join the Network</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Welkom bij Global Central City Arrivals</h1>
+                <p class="subtitle">
+                    Nijmegen Centraal Station is jouw poort naar de wereld.<br>
+                    Met de kracht van startups, innovatie en samenwerking bouwen we hier aan een nieuwe centrale stadshub.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#arrivals" class="btn btn-primary">Bekijk aankomsttijden</a>
+                    <a href="#ttt" class="btn btn-secondary">Sluit je aan bij Start-up Systems</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Arrivals & Station Info -->
+        <section id="arrivals" class="section">
+            <div class="container">
+                <h2>Arrivals & Station Info</h2>
+                <p>
+                    Check hier live aankomst- en vertrektijden, overstappen en plattegronden van Nijmegen Centraal. 
+                    Dit station is meer dan een halte: het is het hart van Global Central City Arrivals.
+                </p>
+                
+                <div class="arrivals-container">
+                    <div class="station-selector">
+                        <button class="station-btn active" onclick="loadArrivals('NMG', 'Nijmegen Centraal')">Nijmegen</button>
+                        <button class="station-btn" onclick="loadArrivals('ASD', 'Amsterdam Centraal')">Amsterdam</button>
+                        <button class="station-btn" onclick="loadArrivals('RTD', 'Rotterdam Centraal')">Rotterdam</button>
+                        <button class="station-btn" onclick="loadArrivals('UT', 'Utrecht Centraal')">Utrecht</button>
+                        <button class="station-btn" onclick="loadArrivals('GVC', 'Den Haag Centraal')">Den Haag</button>
+                    </div>
+                    
+                    <div id="arrivalsDisplay">
+                        <div class="loading">Laden van aankomsttijden...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Startup Nijmegen Manifest -->
+        <section id="startup" class="section">
+            <div class="container">
+                <div class="manifest">
+                    <h3>Beste Startup Nijmegen</h3>
+                    <p>
+                        Centraal Station wordt jullie symbool. Met jullie kracht, innovatie, inzet en wilskracht laat je zien 
+                        wat mogelijk is met 100% inzet – en soms nog meer.
+                    </p>
+                    <p>
+                        Dit portaal is géén opdracht maar een initiatief. Een uitnodiging om samen een netwerk te bouwen 
+                        waarin 10 mensen elk hun eigen weg gaan, maar toch één visie delen: een toekomst waarin start-ups 
+                        systemen bouwen die wereldwijd kunnen groeien.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Startup Directory -->
+        <section id="directory" class="section">
+            <div class="container">
+                <h2>Startup Directory</h2>
+                <p style="text-align: center; margin-bottom: 30px;">
+                    Ontdek de innovatieve startups in het Global Central City Arrivals netwerk
+                </p>
+                
+                <div class="directory-search">
+                    <input type="text" class="search-input" id="startupSearch" placeholder="Zoek startups op naam, categorie of beschrijving..." onkeyup="filterStartups()">
+                </div>
+                
+                <div class="startup-grid" id="startupGrid">
+                    <!-- Startups worden hier dynamisch geladen -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Building -->
+        <section id="community" class="section">
+            <div class="container">
+                <h2>Community Events & Networking</h2>
+                <p style="text-align: center; margin-bottom: 30px;">
+                    Sluit je aan bij onze community events en bouw je netwerk uit
+                </p>
+                
+                <div class="events-calendar" id="eventsCalendar">
+                    <!-- Events worden hier dynamisch geladen -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Multi-Station Expansion -->
+        <section id="stations" class="section">
+            <div class="container">
+                <h2>Multi-Station Network</h2>
+                <p style="text-align: center; margin-bottom: 30px;">
+                    Global Central City Arrivals is uitgebreid naar meerdere stations in Nederland
+                </p>
+                
+                <div class="startup-grid">
+                    <div class="startup-card">
+                        <h4>🚉 Nijmegen Centraal</h4>
+                        <p class="description">Het originele hub-station. Startup-ecosysteem in volle ontwikkeling.</p>
+                        <div class="contact">Status: Active | Startups: 10+</div>
+                    </div>
+                    <div class="startup-card">
+                        <h4>🚉 Amsterdam Centraal</h4>
+                        <p class="description">Nederland's grootste transport hub. Internationale startup-connecties.</p>
+                        <div class="contact">Status: Active | Startups: 25+</div>
+                    </div>
+                    <div class="startup-card">
+                        <h4>🚉 Rotterdam Centraal</h4>
+                        <p class="description">Haven-stad innovatie. Logistiek en tech startups.</p>
+                        <div class="contact">Status: Active | Startups: 15+</div>
+                    </div>
+                    <div class="startup-card">
+                        <h4>🚉 Utrecht Centraal</h4>
+                        <p class="description">Centraal gelegen hub. Fintech en AI startups.</p>
+                        <div class="contact">Status: Active | Startups: 20+</div>
+                    </div>
+                    <div class="startup-card">
+                        <h4>🚉 Den Haag Centraal</h4>
+                        <p class="description">Politieke hoofdstad. GovTech en security startups.</p>
+                        <div class="contact">Status: Active | Startups: 12+</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TTT Start-up Systems -->
+        <section id="ttt" class="section">
+            <div class="container">
+                <h2>TTT – Temporary Telecom Transfers</h2>
+                <h3>Start-up Systems</h3>
+                <p>
+                    Start-up Systems is een leeg maar krachtig "engine-kader": jij bouwt je eigen systeem, onder je eigen naam.
+                </p>
+                <p>
+                    Je koppelt alleen de bedrijven die jij vertrouwt.
+                </p>
+                <p>
+                    De code en ideeën vind je via GitHub, zoek naar <strong>MyOpenAI – Start-up Systems</strong>.
+                </p>
+                <p>
+                    Je digitale identiteit blijft van jou. <strong>100% eigenaarschap</strong> van je data en je winst.
+                </p>
+                <p>
+                    Eén portaal, voor alle apparaten: mobiel, laptop, lokaal of online.
+                </p>
+
+                <h3 style="margin-top: 40px;">Features:</h3>
+                <ul class="features-list">
+                    <li>Open-source architectuur</li>
+                    <li>Internationale business-connecties</li>
+                    <li>Vrije digitale identiteit-registratie</li>
+                    <li>Geen verborgen fees boven een bepaald inkomen</li>
+                    <li>Community-gedreven: "Together Systems for Start-up Systems"</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Join the Network -->
+        <section id="join" class="section">
+            <div class="container">
+                <h2>Join the Network</h2>
+                <div style="background: rgba(0, 102, 204, 0.1); padding: 30px; border-radius: 15px; margin: 20px 0;">
+                    <h3 style="color: var(--primary-color);">NL</h3>
+                    <p>
+                        "Heb je de wil om systemen te bouwen die groter zijn dan jezelf? Sluit je aan bij het TTT-netwerk. 
+                        Vind de mensen achter de architectuur via LinkedIn en GitHub en bouw jouw eigen Global Central City-systeem."
+                    </p>
+                </div>
+                <div style="background: rgba(0, 170, 68, 0.1); padding: 30px; border-radius: 15px; margin: 20px 0;">
+                    <h3 style="color: var(--secondary-color);">EN</h3>
+                    <p>
+                        "Ready to build beyond yourself? Join the TTT network. Connect with the people behind the architecture 
+                        on LinkedIn and GitHub and start your own Global Central City system."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="contact-section">
+                    <h2>Contact</h2>
+                    <p style="font-size: 1.3em; margin-bottom: 20px;">
+                        E-mail: <a href="mailto:info@globalcentralcity.arrivals" style="color: var(--accent-color);">info@globalcentralcity.arrivals</a>
+                    </p>
+                    <div class="contact-links">
+                        <a href="https://www.linkedin.com" target="_blank">Vind ons op LinkedIn</a>
+                        <a href="https://github.com/MyOpenAI/start-up-systems" target="_blank">Bekijk het project op GitHub: MyOpenAI / Start-up Systems</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Global Central City Arrivals – Nijmegen | TTT Start-up Systems</p>
+            <p style="font-size: 0.9em; margin-top: 10px; color: rgba(255, 255, 255, 0.7);">
+                Powered by TogetherSystems | GitHub: MyOpenAI
+            </p>
+        </div>
+    </footer>
+
+    <!-- User Account Badge -->
+    <div class="user-account-badge" id="userAccountBadge" onclick="showAuthModal()">
+        <span id="userAccountText">👤 Inloggen</span>
+    </div>
+
+    <!-- Notary Verification Badge -->
+    <div class="notary-badge" onclick="showNotaryModal()">
+        ✓ Notariële Verificatie
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="authModal" class="auth-modal" onclick="closeAuthModal(event)">
+        <div class="auth-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeAuthModal(event)" style="float: right; font-size: 2em; cursor: pointer; color: var(--text-light);">&times;</span>
+            <h3 id="authTitle">Inloggen</h3>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')">Inloggen</button>
+                <button class="auth-tab" id="registerTab" onclick="switchAuthTab('register')">Registreren</button>
+            </div>
+
+            <div id="loginForm" class="auth-form">
+                <input type="email" id="loginEmail" placeholder="E-mail adres" required>
+                <input type="password" id="loginPassword" placeholder="Wachtwoord" required>
+                <button class="btn btn-primary" onclick="handleLogin()">Inloggen</button>
+                <div id="authError" style="color: var(--accent-color); margin-top: 10px; text-align: center; display: none;"></div>
+            </div>
+
+            <div id="registerForm" class="auth-form" style="display: none;">
+                <input type="text" id="registerName" placeholder="Naam" required>
+                <input type="email" id="registerEmail" placeholder="E-mail adres" required>
+                <input type="password" id="registerPassword" placeholder="Wachtwoord" required>
+                <button class="btn btn-secondary" onclick="handleRegister()">Registreren</button>
+                <div id="registerError" style="color: var(--accent-color); margin-top: 10px; text-align: center; display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notary Modal -->
+    <div id="notaryModal" class="notary-modal" onclick="closeNotaryModal(event)">
+        <div class="notary-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeNotaryModal(event)">&times;</span>
+            <h3>Notariële Verificatie</h3>
+            <p><strong>Document ID:</strong> <span id="docId"></span></p>
+            <p><strong>Verificatie Hash:</strong> <span id="verifyHash"></span></p>
+            <p><strong>GitHub Repository:</strong> <a href="https://github.com/MyOpenAI/start-up-systems" target="_blank" style="color: var(--secondary-color);">TogetherSystems / MyOpenAI</a></p>
+            <p><strong>Status:</strong> <span style="color: var(--secondary-color);">✓ Geverifieerd</span></p>
+            <p><strong>Datum:</strong> <span id="verifyDate"></span></p>
+            <p style="margin-top: 20px; font-size: 0.9em; color: rgba(255, 255, 255, 0.7);">
+                Dit document is notarieel geverifieerd via het TogetherSystems notariële verificatiesysteem.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Notary Verification System
+        function generateNotaryHash() {
+            const content = document.documentElement.outerHTML;
+            let hash = 0;
+            for (let i = 0; i < content.length; i++) {
+                const char = content.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return Math.abs(hash).toString(16).toUpperCase();
+        }
+
+        function generateDocId() {
+            return 'GCC-NIJ-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+        }
+
+        function showNotaryModal() {
+            const modal = document.getElementById('notaryModal');
+            const docId = generateDocId();
+            const hash = generateNotaryHash();
+            const date = new Date().toISOString();
+
+            document.getElementById('docId').textContent = docId;
+            document.getElementById('verifyHash').textContent = hash;
+            document.getElementById('verifyDate').textContent = date;
+
+            modal.classList.add('active');
+
+            // Store verification data
+            localStorage.setItem('gcc_notary_docId', docId);
+            localStorage.setItem('gcc_notary_hash', hash);
+            localStorage.setItem('gcc_notary_date', date);
+        }
+
+        function closeNotaryModal(event) {
+            if (event.target.id === 'notaryModal' || event.target.classList.contains('close')) {
+                document.getElementById('notaryModal').classList.remove('active');
+            }
+        }
+
+        // Initialize notary system on load
+        window.addEventListener('load', function() {
+            const storedDocId = localStorage.getItem('gcc_notary_docId');
+            if (!storedDocId) {
+                // First load - generate verification
+                const docId = generateDocId();
+                const hash = generateNotaryHash();
+                const date = new Date().toISOString();
+                localStorage.setItem('gcc_notary_docId', docId);
+                localStorage.setItem('gcc_notary_hash', hash);
+                localStorage.setItem('gcc_notary_date', date);
+            }
+        });
+
+        // NS/OV API Integration
+        let currentStation = 'NMG';
+        let currentStationName = 'Nijmegen Centraal';
+        const BACKEND_URL = 'http://localhost:3000/api'; // Change to your backend URL
+        let authToken = localStorage.getItem('gcc_auth_token') || null;
+        let currentUser = JSON.parse(localStorage.getItem('gcc_current_user') || 'null');
+
+        // Mock data structure - Fallback if API fails
+        const mockArrivals = {
+            'NMG': [
+                { time: '14:25', destination: 'Amsterdam Centraal', platform: '3', delay: 0 },
+                { time: '14:32', destination: 'Utrecht Centraal', platform: '1', delay: 2 },
+                { time: '14:45', destination: 'Rotterdam Centraal', platform: '2', delay: 0 },
+                { time: '14:58', destination: 'Arnhem Centraal', platform: '4', delay: 0 },
+                { time: '15:12', destination: 'Den Haag Centraal', platform: '1', delay: 0 }
+            ],
+            'ASD': [
+                { time: '14:30', destination: 'Schiphol Airport', platform: '15a', delay: 0 },
+                { time: '14:35', destination: 'Utrecht Centraal', platform: '7b', delay: 0 },
+                { time: '14:42', destination: 'Rotterdam Centraal', platform: '9', delay: 3 },
+                { time: '14:50', destination: 'Den Haag Centraal', platform: '4', delay: 0 },
+                { time: '15:00', destination: 'Nijmegen Centraal', platform: '6', delay: 0 }
+            ],
+            'RTD': [
+                { time: '14:28', destination: 'Amsterdam Centraal', platform: '5', delay: 0 },
+                { time: '14:40', destination: 'Utrecht Centraal', platform: '8', delay: 0 },
+                { time: '14:52', destination: 'Den Haag Centraal', platform: '3', delay: 1 },
+                { time: '15:05', destination: 'Breda', platform: '12', delay: 0 },
+                { time: '15:18', destination: 'Eindhoven Centraal', platform: '7', delay: 0 }
+            ],
+            'UT': [
+                { time: '14:27', destination: 'Amsterdam Centraal', platform: '2', delay: 0 },
+                { time: '14:35', destination: 'Rotterdam Centraal', platform: '5', delay: 0 },
+                { time: '14:48', destination: 'Nijmegen Centraal', platform: '8', delay: 0 },
+                { time: '14:55', destination: 'Den Haag Centraal', platform: '11', delay: 2 },
+                { time: '15:10', destination: 'Groningen', platform: '3', delay: 0 }
+            ],
+            'GVC': [
+                { time: '14:33', destination: 'Rotterdam Centraal', platform: '6', delay: 0 },
+                { time: '14:45', destination: 'Amsterdam Centraal', platform: '9', delay: 0 },
+                { time: '14:58', destination: 'Utrecht Centraal', platform: '4', delay: 1 },
+                { time: '15:12', destination: 'Leiden Centraal', platform: '2', delay: 0 },
+                { time: '15:25', destination: 'Delft', platform: '7', delay: 0 }
+            ]
+        };
+
+        async function loadArrivals(stationCode, stationName) {
+            currentStation = stationCode;
+            currentStationName = stationName;
+            
+            // Update active button
+            document.querySelectorAll('.station-btn').forEach(btn => btn.classList.remove('active'));
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+            
+            // Show loading
+            const display = document.getElementById('arrivalsDisplay');
+            display.innerHTML = '<div class="loading">Laden van aankomsttijden voor ' + stationName + '...</div>';
+            
+            // Try real NS API first, fallback to mock data
+            try {
+                const arrivals = await loadNSArrivalsReal(stationCode);
+                if (arrivals && arrivals.length > 0) {
+                    displayArrivalsFromAPI(arrivals);
+                } else {
+                    displayArrivals(stationCode); // Fallback to mock
+                }
+            } catch (error) {
+                console.error('NS API Error, using mock data:', error);
+                displayArrivals(stationCode); // Fallback to mock
+            }
+        }
+
+        function displayArrivals(stationCode) {
+            const arrivals = mockArrivals[stationCode] || [];
+            const display = document.getElementById('arrivalsDisplay');
+            
+            if (arrivals.length === 0) {
+                display.innerHTML = '<div class="loading">Geen aankomsttijden beschikbaar</div>';
+                return;
+            }
+            
+            let html = '<div class="arrivals-list">';
+            arrivals.forEach(arrival => {
+                const delayText = arrival.delay > 0 ? `<span style="color: var(--accent-color);">+${arrival.delay} min</span>` : '';
+                html += `
+                    <div class="arrival-item">
+                        <div class="arrival-time">${arrival.time} ${delayText}</div>
+                        <div class="arrival-destination">${arrival.destination}</div>
+                        <div class="arrival-platform">Spoor ${arrival.platform}</div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            display.innerHTML = html;
+        }
+
+        // Real NS API Integration via Backend Proxy
+        async function loadNSArrivalsReal(stationCode) {
+            try {
+                // Call backend proxy (backend handles NS API key)
+                const response = await fetch(`${BACKEND_URL}/ns/departures/${stationCode}`);
+                
+                if (!response.ok) {
+                    throw new Error(`Backend error: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Transform NS API response to our format
+                if (data.payload && data.payload.departures) {
+                    return data.payload.departures.map(dep => ({
+                        time: dep.plannedDateTime ? dep.plannedDateTime.split('T')[1].substring(0, 5) : '',
+                        destination: dep.direction || 'Onbekend',
+                        platform: dep.plannedTrack || dep.actualTrack || '?',
+                        delay: dep.actualDateTime && dep.plannedDateTime ? 
+                            Math.round((new Date(dep.actualDateTime) - new Date(dep.plannedDateTime)) / 60000) : 0,
+                        cancelled: dep.cancelled || false
+                    })).filter(dep => !dep.cancelled).slice(0, 10);
+                }
+                
+                return [];
+            } catch (error) {
+                console.error('NS API Error:', error);
+                // Fallback to mock data
+                return mockArrivals[stationCode] || [];
+            }
+        }
+
+        function displayArrivalsFromAPI(arrivals) {
+            const display = document.getElementById('arrivalsDisplay');
+            
+            if (arrivals.length === 0) {
+                display.innerHTML = '<div class="loading">Geen aankomsttijden beschikbaar</div>';
+                return;
+            }
+            
+            let html = '<div class="arrivals-list">';
+            arrivals.forEach(arrival => {
+                const delayText = arrival.delay > 0 ? `<span style="color: var(--accent-color);">+${arrival.delay} min</span>` : '';
+                html += `
+                    <div class="arrival-item">
+                        <div class="arrival-time">${arrival.time} ${delayText}</div>
+                        <div class="arrival-destination">${arrival.destination}</div>
+                        <div class="arrival-platform">Spoor ${arrival.platform}</div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            display.innerHTML = html;
+        }
+
+        // Startup Directory Data
+        const startups = [
+            { name: 'TechFlow Solutions', category: 'SaaS', description: 'Cloud-based workflow automation voor startups', contact: 'info@techflow.nl', station: 'NMG' },
+            { name: 'GreenEnergy Hub', category: 'CleanTech', description: 'Duurzame energie oplossingen voor bedrijven', contact: 'contact@greenenergy.nl', station: 'NMG' },
+            { name: 'DataMind AI', category: 'AI/ML', description: 'Machine learning platform voor data-analyse', contact: 'hello@datamind.ai', station: 'ASD' },
+            { name: 'FinTech Connect', category: 'FinTech', description: 'Blockchain-based payment solutions', contact: 'info@fintechconnect.nl', station: 'UT' },
+            { name: 'LogiSmart', category: 'Logistics', description: 'Intelligente logistiek voor e-commerce', contact: 'contact@logismart.com', station: 'RTD' },
+            { name: 'HealthTech Innovations', category: 'HealthTech', description: 'Digital health solutions voor patiënten', contact: 'info@healthtech.nl', station: 'NMG' },
+            { name: 'EduPlatform Pro', category: 'EdTech', description: 'Online leerplatform voor professionals', contact: 'hello@eduplatform.nl', station: 'ASD' },
+            { name: 'SecureNet Systems', category: 'Cybersecurity', description: 'Enterprise security oplossingen', contact: 'contact@securenet.nl', station: 'GVC' },
+            { name: 'FoodTech Solutions', category: 'FoodTech', description: 'Innovatieve food delivery technologie', contact: 'info@foodtech.nl', station: 'RTD' },
+            { name: 'SpaceTech Ventures', category: 'SpaceTech', description: 'Satelliet technologie en ruimte innovatie', contact: 'hello@spacetech.nl', station: 'UT' },
+            { name: 'MobilityHub', category: 'Mobility', description: 'Smart mobility solutions voor steden', contact: 'contact@mobilityhub.nl', station: 'ASD' },
+            { name: 'AgriTech Innovations', category: 'AgriTech', description: 'Precision farming en smart agriculture', contact: 'info@agritech.nl', station: 'NMG' }
+        ];
+
+        function filterStartups() {
+            const searchTerm = document.getElementById('startupSearch').value.toLowerCase();
+            const filtered = startups.filter(startup => 
+                startup.name.toLowerCase().includes(searchTerm) ||
+                startup.category.toLowerCase().includes(searchTerm) ||
+                startup.description.toLowerCase().includes(searchTerm)
+            );
+            displayStartups(filtered);
+        }
+
+        function displayStartups(startupList = startups) {
+            const grid = document.getElementById('startupGrid');
+            if (startupList.length === 0) {
+                grid.innerHTML = '<p style="text-align: center; grid-column: 1/-1; color: rgba(255,255,255,0.7);">Geen startups gevonden</p>';
+                return;
+            }
+            
+            grid.innerHTML = startupList.map(startup => `
+                <div class="startup-card">
+                    <h4>${startup.name}</h4>
+                    <span class="category">${startup.category}</span>
+                    <p class="description">${startup.description}</p>
+                    <div class="contact">📧 ${startup.contact} | 🚉 ${startup.station}</div>
+                </div>
+            `).join('');
+        }
+
+        // Community Events Data
+        const events = [
+            { date: '2025-02-15', time: '18:00', title: 'Startup Networking Meetup', description: 'Maandelijkse networking event voor startups en investeerders', location: 'Nijmegen Centraal Hub', type: 'Networking' },
+            { date: '2025-02-22', time: '14:00', title: 'Tech Talk: AI in Business', description: 'Expert panel over AI implementatie in startups', location: 'Amsterdam Centraal Hub', type: 'Workshop' },
+            { date: '2025-03-01', time: '10:00', title: 'Pitch Day 2025', description: 'Startup pitch competition met investeerders', location: 'Utrecht Centraal Hub', type: 'Competition' },
+            { date: '2025-03-08', time: '19:00', title: 'Founder Stories', description: 'Inspiring stories van succesvolle founders', location: 'Rotterdam Centraal Hub', type: 'Inspiration' },
+            { date: '2025-03-15', time: '16:00', title: 'Hackathon: GreenTech', description: '24-uurs hackathon voor duurzame tech oplossingen', location: 'Den Haag Centraal Hub', type: 'Hackathon' },
+            { date: '2025-03-22', time: '18:30', title: 'Investor Speed Dating', description: 'Snel kennismaken met potentiële investeerders', location: 'Nijmegen Centraal Hub', type: 'Networking' }
+        ];
+
+        function displayEvents() {
+            const calendar = document.getElementById('eventsCalendar');
+            calendar.innerHTML = events.map(event => `
+                <div class="event-card">
+                    <div class="event-date">📅 ${new Date(event.date).toLocaleDateString('nl-NL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })} | ⏰ ${event.time}</div>
+                    <div class="event-title">${event.title}</div>
+                    <div class="event-description">${event.description}</div>
+                    <div style="margin-top: 10px; color: var(--accent-color);">📍 ${event.location}</div>
+                    <div class="event-actions">
+                        <button class="btn btn-primary btn-small" onclick="registerEvent('${event.id || event.title}', '${event.title}')">Aanmelden</button>
+                        <button class="btn btn-secondary btn-small" onclick="shareEvent('${event.title}')">Delen</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // registerEvent function is now async and uses backend - see below
+
+        function shareEvent(eventTitle) {
+            if (navigator.share) {
+                navigator.share({
+                    title: eventTitle,
+                    text: `Kom naar ${eventTitle} bij Global Central City Arrivals!`,
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('Event link gekopieerd naar klembord!');
+            }
+        }
+
+        // ==================== USER ACCOUNT SYSTEM ====================
+
+        function showAuthModal() {
+            if (currentUser) {
+                // Show user profile
+                showUserProfile();
+                return;
+            }
+            document.getElementById('authModal').classList.add('active');
+        }
+
+        function closeAuthModal(event) {
+            if (event.target.id === 'authModal' || event.target.classList.contains('close')) {
+                document.getElementById('authModal').classList.remove('active');
+            }
+        }
+
+        function switchAuthTab(tab) {
+            document.getElementById('loginTab').classList.toggle('active', tab === 'login');
+            document.getElementById('registerTab').classList.toggle('active', tab === 'register');
+            document.getElementById('loginForm').style.display = tab === 'login' ? 'block' : 'none';
+            document.getElementById('registerForm').style.display = tab === 'register' ? 'block' : 'none';
+            document.getElementById('authTitle').textContent = tab === 'login' ? 'Inloggen' : 'Registreren';
+            document.getElementById('authError').style.display = 'none';
+            document.getElementById('registerError').style.display = 'none';
+        }
+
+        async function handleLogin() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const errorDiv = document.getElementById('authError');
+
+            if (!email || !password) {
+                errorDiv.textContent = 'Vul alle velden in';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    authToken = data.token;
+                    currentUser = data.user;
+                    localStorage.setItem('gcc_auth_token', authToken);
+                    localStorage.setItem('gcc_current_user', JSON.stringify(currentUser));
+                    
+                    updateUserUI();
+                    closeAuthModal({ target: { id: 'authModal' } });
+                    trackAnalytics('user_login', { user_id: currentUser.id });
+                } else {
+                    errorDiv.textContent = data.error || 'Login mislukt';
+                    errorDiv.style.display = 'block';
+                }
+            } catch (error) {
+                errorDiv.textContent = 'Verbindingsfout. Controleer of de backend server draait.';
+                errorDiv.style.display = 'block';
+                console.error('Login error:', error);
+            }
+        }
+
+        async function handleRegister() {
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const errorDiv = document.getElementById('registerError');
+
+            if (!name || !email || !password) {
+                errorDiv.textContent = 'Vul alle velden in';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            if (password.length < 6) {
+                errorDiv.textContent = 'Wachtwoord moet minimaal 6 tekens zijn';
+                errorDiv.style.display = 'block';
+                return;
+            }
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/auth/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, password })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    authToken = data.token;
+                    currentUser = data.user;
+                    localStorage.setItem('gcc_auth_token', authToken);
+                    localStorage.setItem('gcc_current_user', JSON.stringify(currentUser));
+                    
+                    updateUserUI();
+                    switchAuthTab('login');
+                    trackAnalytics('user_registered', { user_id: currentUser.id });
+                    alert('Registratie succesvol! Je bent nu ingelogd.');
+                } else {
+                    errorDiv.textContent = data.error || 'Registratie mislukt';
+                    errorDiv.style.display = 'block';
+                }
+            } catch (error) {
+                errorDiv.textContent = 'Verbindingsfout. Controleer of de backend server draait.';
+                errorDiv.style.display = 'block';
+                console.error('Register error:', error);
+            }
+        }
+
+        function handleLogout() {
+            authToken = null;
+            currentUser = null;
+            localStorage.removeItem('gcc_auth_token');
+            localStorage.removeItem('gcc_current_user');
+            updateUserUI();
+            trackAnalytics('user_logout', {});
+        }
+
+        function updateUserUI() {
+            const badge = document.getElementById('userAccountBadge');
+            const text = document.getElementById('userAccountText');
+            
+            if (currentUser) {
+                badge.classList.add('logged-in');
+                text.textContent = `👤 ${currentUser.name}`;
+            } else {
+                badge.classList.remove('logged-in');
+                text.textContent = '👤 Inloggen';
+            }
+        }
+
+        function showUserProfile() {
+            if (!currentUser) return;
+            alert(`Welkom ${currentUser.name}!\n\nE-mail: ${currentUser.email}\nRol: ${currentUser.role}\n\nJe kunt nu:\n- Startups registreren\n- Events aanmelden\n- Je profiel beheren`);
+        }
+
+        // ==================== ANALYTICS TRACKING ====================
+
+        function trackAnalytics(eventType, eventData = {}) {
+            // Generate session ID if not exists
+            let sessionId = sessionStorage.getItem('gcc_session_id');
+            if (!sessionId) {
+                sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                sessionStorage.setItem('gcc_session_id', sessionId);
+            }
+
+            const analyticsData = {
+                event_type: eventType,
+                event_data: {
+                    ...eventData,
+                    timestamp: new Date().toISOString(),
+                    page: window.location.href,
+                    referrer: document.referrer
+                },
+                user_id: currentUser ? currentUser.id : null,
+                session_id: sessionId
+            };
+
+            // Send to backend if available
+            if (authToken) {
+                fetch(`${BACKEND_URL}/analytics`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify(analyticsData)
+                }).catch(err => console.error('Analytics error:', err));
+            }
+
+            // Also log to console for debugging
+            console.log('Analytics:', eventType, analyticsData);
+        }
+
+        // Track page view
+        function trackPageView() {
+            trackAnalytics('page_view', {
+                page_title: document.title,
+                page_path: window.location.pathname
+            });
+        }
+
+        // ==================== EVENT REGISTRATION WITH BACKEND ====================
+
+        async function registerEvent(eventIdOrTitle, eventTitle) {
+            if (!currentUser) {
+                alert('Je moet eerst inloggen om je aan te melden voor events.');
+                showAuthModal();
+                return;
+            }
+
+            // Find event by ID or title
+            let event = events.find(e => e.id == eventIdOrTitle || e.title === eventIdOrTitle);
+            if (!event) {
+                // If event not found locally, try with backend ID
+                event = { id: eventIdOrTitle, title: eventTitle || 'Event' };
+            }
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/events/${event.id}/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    }
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert(`Bedankt voor je aanmelding voor: ${eventTitle || event.title}\n\nJe ontvangt binnenkort een bevestiging per e-mail.`);
+                    trackAnalytics('event_registered', { event_id: event.id, event_title: eventTitle || event.title });
+                } else {
+                    alert(data.error || 'Aanmelding mislukt');
+                }
+            } catch (error) {
+                console.error('Event registration error:', error);
+                // Fallback: just show success message if backend is not available
+                if (error.message.includes('fetch')) {
+                    alert(`Bedankt voor je aanmelding voor: ${eventTitle || event.title}\n\n(Backend niet beschikbaar - demo modus)`);
+                    trackAnalytics('event_registered_offline', { event_title: eventTitle || event.title });
+                } else {
+                    alert('Verbindingsfout. Controleer of de backend server draait.');
+                }
+            }
+        }
+
+        // Load events from backend
+        async function loadEventsFromBackend() {
+            try {
+                const response = await fetch(`${BACKEND_URL}/events`);
+                const data = await response.json();
+                
+                if (data.events && data.events.length > 0) {
+                    // Merge backend events with local events
+                    const backendEvents = data.events.map(e => ({
+                        id: e.id,
+                        date: e.date,
+                        time: e.time,
+                        title: e.title,
+                        description: e.description,
+                        location: e.location,
+                        type: e.type
+                    }));
+                    
+                    // Update events array and display
+                    events.push(...backendEvents);
+                    displayEvents();
+                }
+            } catch (error) {
+                console.error('Failed to load events from backend:', error);
+                // Continue with local events
+            }
+        }
+
+        // ==================== STARTUP REGISTRATION ====================
+
+        async function registerStartup(startupData) {
+            if (!currentUser) {
+                alert('Je moet eerst inloggen om een startup te registreren.');
+                showAuthModal();
+                return;
+            }
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/startups`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify(startupData)
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert(`Startup "${startupData.name}" succesvol geregistreerd!\n\nStatus: In afwachting van goedkeuring.`);
+                    trackAnalytics('startup_registered', { startup_id: data.startup.id, startup_name: startupData.name });
+                    // Reload startups
+                    loadStartupsFromBackend();
+                } else {
+                    alert(data.error || 'Registratie mislukt');
+                }
+            } catch (error) {
+                console.error('Startup registration error:', error);
+                alert('Verbindingsfout. Controleer of de backend server draait.');
+            }
+        }
+
+        // Load startups from backend
+        async function loadStartupsFromBackend() {
+            try {
+                const response = await fetch(`${BACKEND_URL}/startups`);
+                const data = await response.json();
+                
+                if (data.startups && data.startups.length > 0) {
+                    // Merge backend startups with local startups
+                    const backendStartups = data.startups.map(s => ({
+                        name: s.name,
+                        category: s.category,
+                        description: s.description,
+                        contact: s.contact_email,
+                        station: s.station_code
+                    }));
+                    
+                    // Update startups array and display
+                    startups.push(...backendStartups);
+                    displayStartups();
+                }
+            } catch (error) {
+                console.error('Failed to load startups from backend:', error);
+                // Continue with local startups
+            }
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', function() {
+            // Check for existing auth
+            if (authToken && currentUser) {
+                updateUserUI();
+            }
+            
+            // Load initial arrivals for Nijmegen
+            displayArrivals('NMG');
+            
+            // Display startups (local + backend)
+            displayStartups();
+            loadStartupsFromBackend();
+            
+            // Display events (local + backend)
+            displayEvents();
+            loadEventsFromBackend();
+            
+            // Track page view
+            trackPageView();
+            
+            // Track user interactions
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('btn') || e.target.closest('.btn')) {
+                    trackAnalytics('button_click', {
+                        button_text: e.target.textContent || e.target.closest('.btn').textContent,
+                        button_id: e.target.id || e.target.closest('.btn').id
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

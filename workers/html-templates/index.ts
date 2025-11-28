@@ -1,7 +1,7 @@
 /**
  * Auto-generated HTML template
  * Source: public/index.html
- * Generated: 2025-11-28T13:41:19.905Z
+ * Generated: 2025-11-28T13:44:11.043Z
  */
 
 export const indexHTML = `<!DOCTYPE html>
@@ -339,6 +339,249 @@ export const indexHTML = `<!DOCTYPE html>
         .ceoc-explanation strong {
             color: #00ff88;
         }
+
+        /* TPGA Core Banner Styles */
+        .tpga-core-banner {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(56, 189, 248, 0.15));
+            border: 3px solid #8b5cf6;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(139, 92, 246, 0.3), 0 0 60px rgba(56, 189, 248, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tpga-core-banner::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, #8b5cf6, #38bdf8, #a855f7, #00ff88);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.4;
+            animation: rotate 8s linear infinite;
+        }
+
+        .tpga-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tpga-header h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            background: linear-gradient(135deg, #8b5cf6, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        .tpga-badge {
+            background: linear-gradient(135deg, #8b5cf6, #38bdf8);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .tpga-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .tpga-intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #8b5cf6;
+            border-radius: 10px;
+        }
+
+        .tpga-intro strong {
+            color: #8b5cf6;
+        }
+
+        .tpga-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .tpga-feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .tpga-feature-card:hover {
+            border-color: #8b5cf6;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .tpga-feature-card h3 {
+            color: #8b5cf6;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .tpga-feature-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .tpga-ttt-systems {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 255, 136, 0.05);
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 12px;
+        }
+
+        .tpga-ttt-systems h3 {
+            color: #00ff88;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .ttt-systems-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ttt-system-item {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .ttt-system-item strong {
+            color: #00ff88;
+        }
+
+        .tpga-docs-link {
+            margin-top: 25px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .tpga-docs-link p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .tpga-link {
+            color: #38bdf8;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .tpga-link:hover {
+            color: #00ff88;
+        }
+
+        .tpga-details-section {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(56, 189, 248, 0.1));
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tpga-details-section h3 {
+            color: #8b5cf6;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .tpga-details-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .tpga-detail-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(139, 92, 246, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .tpga-detail-card h4 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .tpga-detail-card ul, .tpga-detail-card ol {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+
+        .tpga-detail-card li {
+            margin-bottom: 8px;
+        }
+
+        .tpga-detail-card strong {
+            color: #8b5cf6;
+        }
+
+        .tpga-toggle-btn {
+            background: linear-gradient(135deg, #8b5cf6, #38bdf8);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 20px auto 0;
+        }
+
+        .tpga-toggle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -419,6 +662,121 @@ export const indexHTML = `<!DOCTYPE html>
     <div class="container">
         <h1>Startup Systems</h1>
         <p class="subtitle">Modern infrastructure for startups and innovation</p>
+
+        <!-- TPGA Core Info Banner - PROMINENT -->
+        <div class="tpga-core-banner">
+            <div class="tpga-header">
+                <h2>🔐 TPGA - Der Kern unserer Architektur</h2>
+                <span class="tpga-badge">CORE & KERNEL</span>
+            </div>
+            <div class="tpga-content">
+                <div class="tpga-main-info">
+                    <p class="tpga-intro">
+                        <strong>TPGA (Three T Platform Global Architecture)</strong> ist das fundamentale Architektur-System 
+                        von <strong>TTT (Three T)</strong> - Together Systems · Telbank · T-Systems GPA. 
+                        Es bildet die <strong>Grundlage für alle TTT-Services</strong> und ermöglicht nahtlose Integration 
+                        zwischen allen Komponenten.
+                    </p>
+                    
+                    <div class="tpga-features-grid">
+                        <div class="tpga-feature-card">
+                            <h3>🔑 Unified Account System</h3>
+                            <p>Ein Account für alle TTT Services • Single User Identity • Zentrales Profil-Management • Cross-Platform Sync</p>
+                        </div>
+                        <div class="tpga-feature-card">
+                            <h3>🔐 Single Sign-On (SSO)</h3>
+                            <p>Ein Login für alle TTT-Services • JWT-basiert • OAuth 2.0 • Multi-Device Support</p>
+                        </div>
+                        <div class="tpga-feature-card">
+                            <h3>🔄 Cross-Platform Integration</h3>
+                            <p>Together Systems ↔ Telbank ↔ T-Systems GPA • Shared Database • Unified REST API • Real-time Sync</p>
+                        </div>
+                        <div class="tpga-feature-card">
+                            <h3>🌐 Global Platform Architecture</h3>
+                            <p>Cloudflare Edge Network (200+ Datenzentren) • Edge Computing • Auto-Scaling • Sub-50ms Response Times</p>
+                        </div>
+                    </div>
+
+                    <div class="tpga-ttt-systems">
+                        <h3>🏗️ Three T (TTT) Kern-Systeme über TPGA:</h3>
+                        <div class="ttt-systems-list">
+                            <div class="ttt-system-item">
+                                <strong>🌐 Together Systems:</strong> Zentrale Plattform, User-Management, Manifest-System
+                            </div>
+                            <div class="ttt-system-item">
+                                <strong>💰 Telbank:</strong> Finanzsystem, MetaMask, Crypto/Fiat, TELBANK Pool
+                            </div>
+                            <div class="ttt-system-item">
+                                <strong>🔐 T-Systems GPA:</strong> System-Orchestrierung, API-Gateway, Global Network
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tpga-docs-link">
+                        <p>
+                            📚 <strong>Vollständige Dokumentation:</strong> 
+                            <a href="#tpga-details" onclick="showTPGADetails()" class="tpga-link">TPGA-Details anzeigen</a> | 
+                            <a href="/togethersystems/#tpga" class="tpga-link">Im TogetherSystems Portal</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TPGA Details Section (expandable) -->
+        <div id="tpga-details" class="tpga-details-section" style="display: none;">
+            <h3>📖 Vollständige TPGA-Informationen</h3>
+            <div class="tpga-details-content">
+                <div class="tpga-detail-card">
+                    <h4>🎯 Use Cases</h4>
+                    <ul>
+                        <li><strong>User meldet sich an:</strong> Ein Login über TPGA SSO → Automatischer Zugang zu Telbank, Startup Systems, Investor Portal, Job Portal</li>
+                        <li><strong>Cross-Service Datenzugriff:</strong> Startup in Together Systems erstellen → Automatisch verfügbar in Startup Systems Portal → Verlinkt mit Investor Portal → Finanzdaten synchronisiert mit Telbank</li>
+                        <li><strong>Service-Integration:</strong> Investor nutzt Investor Portal → Ergebnisse automatisch in Telbank → Job-Portal zeigt C-E-O-C Status</li>
+                    </ul>
+                </div>
+                
+                <div class="tpga-detail-card">
+                    <h4>🔧 Technische Architektur</h4>
+                    <p><strong>Layer-Struktur:</strong></p>
+                    <ol>
+                        <li><strong>User Interface Layer:</strong> HTML/CSS/JS Frontend</li>
+                        <li><strong>Application Layer:</strong> Portale (Together Systems, Startup Systems, Investor, Job, Telbank)</li>
+                        <li><strong>TPGA Core Layer:</strong> SSO Authentication, Unified Account System, Cross-Platform Communication</li>
+                        <li><strong>API Gateway Layer:</strong> Hono Framework, Route Management, Middleware</li>
+                        <li><strong>Service Layer:</strong> Together Systems API, Telbank API, Investor API, Jobs API, GCC API</li>
+                        <li><strong>Data Layer:</strong> Cloudflare D1 (SQLite), Unified Schema, Real-time Sync</li>
+                    </ol>
+                </div>
+
+                <div class="tpga-detail-card">
+                    <h4>📊 Service-Integration Status</h4>
+                    <ul>
+                        <li>✅ Together Systems Portal</li>
+                        <li>✅ Startup Systems</li>
+                        <li>✅ Investor Portal</li>
+                        <li>✅ Job Portal (C-E-O-C)</li>
+                        <li>✅ GCC API</li>
+                        <li>✅ YORDY Showcase</li>
+                        <li>✅ Alle TTT Apps</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>Status:</strong> Alle Services vollständig über TPGA integriert</p>
+                </div>
+
+                <div class="tpga-detail-card">
+                    <h4>🔐 Sicherheit</h4>
+                    <ul>
+                        <li>JWT-basierte SSO Authentifizierung</li>
+                        <li>Multi-Factor Authentication (MFA)</li>
+                        <li>Role-Based Access Control (RBAC)</li>
+                        <li>End-to-End Encryption</li>
+                        <li>Secure Data Transmission (TLS 1.3)</li>
+                        <li>DDoS Protection (automatisch durch Cloudflare)</li>
+                    </ul>
+                </div>
+            </div>
+            <button onclick="hideTPGADetails()" class="tpga-toggle-btn">Details ausblenden</button>
+        </div>
 
         <!-- Navigation Grid -->
         <div class="nav-grid">
@@ -524,6 +882,31 @@ export const indexHTML = `<!DOCTYPE html>
             }
         \`;
         document.head.appendChild(style);
+
+        // TPGA Details Toggle Functions
+        function showTPGADetails() {
+            const detailsSection = document.getElementById('tpga-details');
+            if (detailsSection) {
+                detailsSection.style.display = 'block';
+                detailsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function hideTPGADetails() {
+            const detailsSection = document.getElementById('tpga-details');
+            if (detailsSection) {
+                detailsSection.style.display = 'none';
+            }
+        }
+
+        // Smooth scroll to anchor if hash present
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hash === '#tpga-details') {
+                setTimeout(() => {
+                    showTPGADetails();
+                }, 500);
+            }
+        });
     </script>
 </body>
 </html>

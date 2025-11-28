@@ -1,7 +1,7 @@
 /**
  * Auto-generated HTML template
  * Source: public/togethersystems/portal.html
- * Generated: 2025-11-28T13:28:21.888Z
+ * Generated: 2025-11-28T13:41:19.923Z
  */
 
 export const togetherSystemsHTML = `<!DOCTYPE html>
@@ -256,6 +256,7 @@ export const togetherSystemsHTML = `<!DOCTYPE html>
         <!-- Navigation -->
         <div class="nav">
             <a href="#" class="nav-btn active" onclick="showSection('overview')">Überblick</a>
+            <a href="#" class="nav-btn" onclick="showSection('tpga')">🔐 TPGA</a>
             <a href="#" class="nav-btn" onclick="showSection('architecture')">Systemarchitektur</a>
             <a href="#" class="nav-btn" onclick="showSection('new-features')">🆕 Neue Features</a>
             <a href="#" class="nav-btn" onclick="showSection('telbank')">💰 Telbank</a>
@@ -404,6 +405,149 @@ export const togetherSystemsHTML = `<!DOCTYPE html>
                 - Notarisierte Verifizierung<br>
                 - KI-gestützte Analyse<br>
                 - Globale BPP-Integration
+            </div>
+        </div>
+
+        <!-- TPGA Section -->
+        <div id="tpga" class="section">
+            <h2>🔐 TPGA - Three T Platform Global Architecture</h2>
+
+            <div class="info-box">
+                <h3>🌐 Überblick</h3>
+                <p>
+                    <strong>TPGA (Three T Platform Global Architecture)</strong> ist das fundamentale Architektur-System von 
+                    <strong>TTT (Three T) - Together Systems · Telbank · T-Systems GPA</strong>. Es bildet die Grundlage 
+                    für alle TTT-Services und ermöglicht nahtlose Integration zwischen allen Komponenten.
+                </p>
+                <p style="margin-top: 15px;">
+                    TPGA ist eine <strong>unified Platform Architecture</strong>, die alle TTT-Services unter einem Dach vereint 
+                    und durch einheitliche Authentifizierung, Datenverwaltung und Kommunikation verbindet.
+                </p>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="border: 2px solid var(--ttt-color);">
+                    <h3>🔑 Unified Account System</h3>
+                    <ul class="feature-list">
+                        <li>✅ Ein Account für alle TTT Services</li>
+                        <li>✅ Single User Identity über alle Plattformen</li>
+                        <li>✅ Zentrales Profil-Management</li>
+                        <li>✅ Cross-Platform Daten-Synchronisation</li>
+                        <li>✅ Einheitliche Berechtigungsverwaltung</li>
+                        <li>✅ Unified Settings & Preferences</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-size: 0.9em;">
+                        <strong>Vorteile:</strong> Kein mehrfaches Anmelden, synchronisierte Daten, zentrale Einstellungen
+                    </p>
+                </div>
+
+                <div class="card" style="border: 2px solid var(--secondary-color);">
+                    <h3>🔐 Single Sign-On (SSO)</h3>
+                    <ul class="feature-list">
+                        <li>✅ Ein Login für alle TTT-Services</li>
+                        <li>✅ Secure Token-System (JWT)</li>
+                        <li>✅ Session-Management</li>
+                        <li>✅ Multi-Device Support</li>
+                        <li>✅ Automatic Re-authentication</li>
+                        <li>✅ OAuth 2.0 kompatibel</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-size: 0.9em;">
+                        <strong>Implementierung:</strong> JWT-basierte Authentifizierung mit Token-Refresh-Mechanismen
+                    </p>
+                </div>
+
+                <div class="card" style="border: 2px solid var(--primary-color);">
+                    <h3>🔄 Cross-Platform Integration</h3>
+                    <ul class="feature-list">
+                        <li>✅ Together Systems ↔ Telbank ↔ T-Systems GPA</li>
+                        <li>✅ Startup Systems ↔ Investor Portal ↔ Job Portal</li>
+                        <li>✅ GCC API ↔ TogetherSystems ↔ TTT Services</li>
+                        <li>✅ Alle Apps ↔ Zentrale Services</li>
+                        <li>✅ Shared Database (Cloudflare D1)</li>
+                        <li>✅ Unified REST API</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border: 2px solid var(--accent-color);">
+                    <h3>🌐 Global Platform Architecture</h3>
+                    <ul class="feature-list">
+                        <li>🌍 Cloudflare Edge Network (200+ Datenzentren)</li>
+                        <li>⚡ Edge Computing</li>
+                        <li>🔒 End-to-End Encryption</li>
+                        <li>📊 Real-time Sync</li>
+                        <li>🔄 Auto-Scaling</li>
+                        <li>🚀 Sub-50ms Response Times</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border: 2px solid #FFD700;">
+                    <h3>🏗️ Three T (TTT) Kern-Systeme</h3>
+                    <ul class="feature-list">
+                        <li>🌐 <strong>Together Systems:</strong> Zentrale Plattform, User-Management, Manifest-System</li>
+                        <li>💰 <strong>Telbank:</strong> Finanzsystem, MetaMask, Crypto/Fiat, TELBANK Pool</li>
+                        <li>🔐 <strong>T-Systems GPA:</strong> System-Orchestrierung, API-Gateway, Global Network</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-size: 0.9em;">
+                        Alle drei Systeme sind vollständig integriert und über TPGA verbunden.
+                    </p>
+                </div>
+
+                <div class="card" style="border: 2px solid #38bdf8;">
+                    <h3>📊 Service-Integration</h3>
+                    <ul class="feature-list">
+                        <li>✅ Together Systems Portal</li>
+                        <li>✅ Startup Systems</li>
+                        <li>✅ Investor Portal</li>
+                        <li>✅ Job Portal (C-E-O-C)</li>
+                        <li>✅ GCC API</li>
+                        <li>✅ YORDY Showcase</li>
+                        <li>✅ Alle TTT Apps</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-size: 0.9em;">
+                        <strong>Status:</strong> Alle Services vollständig über TPGA integriert
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 30px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(56, 189, 248, 0.1));">
+                <h3>🎯 TPGA Use Cases</h3>
+                <div style="margin-top: 20px;">
+                    <div style="margin-bottom: 20px;">
+                        <strong>1. User meldet sich an:</strong>
+                        <ul style="margin-top: 8px; text-align: left;">
+                            <li>User öffnet Together Systems Portal</li>
+                            <li>Login über TPGA SSO</li>
+                            <li>Automatischer Zugang zu: Telbank, Startup Systems, Investor Portal, Job Portal</li>
+                        </ul>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <strong>2. Cross-Service Datenzugriff:</strong>
+                        <ul style="margin-top: 8px; text-align: left;">
+                            <li>User erstellt Startup in Together Systems</li>
+                            <li>Automatisch verfügbar in Startup Systems Portal</li>
+                            <li>Automatisch verlinkt mit Investor Portal</li>
+                            <li>Finanzdaten synchronisiert mit Telbank</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <strong>3. Service-Integration:</strong>
+                        <ul style="margin-top: 8px; text-align: left;">
+                            <li>Investor nutzt Investor Portal für Berechnungen</li>
+                            <li>Ergebnisse automatisch in Telbank für Investment-Planung</li>
+                            <li>Job-Portal zeigt C-E-O-C Status basierend auf Investor-Status</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 30px;">
+                <h3>📚 Vollständige Dokumentation</h3>
+                <p>
+                    Für detaillierte technische Informationen siehe: <strong>TPGA-VOLLSTÄNDIGE-DOKUMENTATION.md</strong>
+                </p>
+                <p style="margin-top: 15px;">
+                    <strong>Status:</strong> ✅ Kernfunktionen implementiert | 🚧 Erweiterte Features in Entwicklung
+                </p>
             </div>
         </div>
 

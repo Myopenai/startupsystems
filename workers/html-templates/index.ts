@@ -1,7 +1,7 @@
 /**
  * Auto-generated HTML template
  * Source: public/index.html
- * Generated: 2025-11-28T13:28:21.776Z
+ * Generated: 2025-11-28T13:41:19.905Z
  */
 
 export const indexHTML = `<!DOCTYPE html>

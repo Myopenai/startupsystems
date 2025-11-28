@@ -1,7 +1,7 @@
 /**
  * Auto-generated HTML template
  * Source: public/togethersystems/portal.html
- * Generated: 2025-11-28T13:08:43.692Z
+ * Generated: 2025-11-28T13:20:17.366Z
  */
 
 export const togetherSystemsHTML = `<!DOCTYPE html>
@@ -257,6 +257,8 @@ export const togetherSystemsHTML = `<!DOCTYPE html>
         <div class="nav">
             <a href="#" class="nav-btn active" onclick="showSection('overview')">Überblick</a>
             <a href="#" class="nav-btn" onclick="showSection('architecture')">Systemarchitektur</a>
+            <a href="#" class="nav-btn" onclick="showSection('new-features')">🆕 Neue Features</a>
+            <a href="#" class="nav-btn" onclick="showSection('telbank')">💰 Telbank</a>
             <a href="#" class="nav-btn" onclick="showSection('migration')">Migration</a>
             <a href="#" class="nav-btn" onclick="showSection('github')">GitHub Integration</a>
         </div>
@@ -295,6 +297,21 @@ export const togetherSystemsHTML = `<!DOCTYPE html>
                         <li>API-Layer</li>
                         <li>Hash + Zeitstempel Notarisierung</li>
                         <li>KI-Auswertung</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>💰 TELBANK - Finanzsystem</h3>
+                    <p>
+                        MetaMask-Integration, Fiat & Crypto Transaktionen, Inflow/Outflow Management, TELBANK Pool für gemeinsame Liquidität.
+                    </p>
+                    <ul class="feature-list">
+                        <li>💰 Telbank - Hauptsystem mit MetaMask</li>
+                        <li>💰 TELBANK Pool - Gemeinsamer Liquiditäts-Pool</li>
+                        <li>💎 TELADIA - Premium Banking Service</li>
+                        <li>🔄 Inflow/Outflow Management</li>
+                        <li>📊 Real-time Balance Tracking</li>
+                        <li>🔐 Multi-Signature Wallets</li>
                     </ul>
                 </div>
 
@@ -387,6 +404,166 @@ export const togetherSystemsHTML = `<!DOCTYPE html>
                 - Notarisierte Verifizierung<br>
                 - KI-gestützte Analyse<br>
                 - Globale BPP-Integration
+            </div>
+        </div>
+
+        <!-- New Features Section -->
+        <div id="new-features" class="section">
+            <h2>🆕 Neue Features</h2>
+
+            <div class="info-box" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2)); border: 2px solid var(--ttt-color);">
+                <h3 style="color: var(--ttt-color);">🎁 OSTOSOS - Global Free Internet ⭐ NEU!</h3>
+                <p><strong>International TTT Global Free Internet</strong></p>
+                <p><strong>WAS DU WILLST | WO DU WILLST | WIE DU WILLST</strong></p>
+                <ul style="margin-top: 15px; text-align: left;">
+                    <li>✅ KEINE USER-BEZOGENEN DATEN</li>
+                    <li>✅ ALLE DATEN BLEIBEN USER EIGENTUM</li>
+                    <li>✅ EIGENTUMSBEWEIS NACHWEIS IM PAKET INKLUSIVE</li>
+                    <li>✅ ANONYMIESIERTE VERIFIZIERUNG</li>
+                    <li>⚡ SOLANGE DER VORRAT REICHT</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>OS VON OSTOSOS DREI TTT VON T,.</strong></p>
+            </div>
+
+            <div class="grid" style="margin-top: 30px;">
+                <div class="card" style="border: 2px solid var(--ttt-color);">
+                    <h3>🎬 OSTOS ∞ Branding Universe ⭐ NEU!</h3>
+                    <p><strong>Special für Investoren & Sponsoren</strong></p>
+                    <ul class="feature-list">
+                        <li>✨ Branding Lab - Logo-Upload</li>
+                        <li>💰 GoFundMe Integration</li>
+                        <li>🏢 Sponsor-Integration</li>
+                        <li>📈 Umsatz-Tracking</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-size: 0.9em;">
+                        <strong>Vorteile:</strong> Ohne Investition, nur durch Überzeugung. Finanzielle Mittel gehen nicht aus.
+                    </p>
+                </div>
+
+                <div class="card" style="border: 2px solid var(--secondary-color);">
+                    <h3>📧 Microsoft Account Erklärung ⭐ NEU!</h3>
+                    <p><strong>Super Simpele Uitleg</strong></p>
+                    <ul class="feature-list">
+                        <li>📱 Android & Microsoft</li>
+                        <li>🎨 Logo-Upload verfügbar</li>
+                        <li>⚡ Vollständig offline</li>
+                        <li>✅ Keine Installation erforderlich</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-size: 0.9em;">
+                        <strong>Gratis Microsoft-account</strong> - Schritt-für-Schritt Anleitung
+                    </p>
+                </div>
+
+                <div class="card" style="border: 2px solid var(--accent-color);">
+                    <h3>⚠️ Forum für Fehler & Probleme ⭐ NEU!</h3>
+                    <p><strong>Zentrales Support-Forum</strong></p>
+                    <ul class="feature-list">
+                        <li>📝 Thread-Erstellung</li>
+                        <li>📸 Medien-Upload (Screenshots, Videos)</li>
+                        <li>🔄 Schritt-für-Schritt Reproduktion</li>
+                        <li>🌐 Online: <a href="https://tel1.boards.net/" target="_blank" style="color: var(--accent-color);">tel1.boards.net</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Telbank Section -->
+        <div id="telbank" class="section">
+            <h2>💰 TELBANK - Vollständige Dokumentation</h2>
+
+            <div class="info-box">
+                <h3>🏦 TELBANK Komponenten</h3>
+                <p>
+                    TELBANK ist das Finanzsystem von <strong>TTT (Three T) - Together Systems · Telbank · T-Systems GPA</strong>.
+                    Es kombiniert traditionelle Banking-Funktionen mit Blockchain-Technologie und MetaMask-Integration.
+                </p>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="border: 2px solid #FFD700;">
+                    <h3>💰 Telbank (Hauptsystem)</h3>
+                    <ul class="feature-list">
+                        <li>🔗 MetaMask Wallet-Integration</li>
+                        <li>💶 Fiat & Crypto Transaktionen</li>
+                        <li>📊 Inflow/Outflow Management</li>
+                        <li>⚡ Real-time Balance Tracking</li>
+                        <li>🔐 Multi-Signature Wallets</li>
+                        <li>📈 Transaction History</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border: 2px solid #38bdf8;">
+                    <h3>💰 TELBANK Pool</h3>
+                    <ul class="feature-list">
+                        <li>💧 Gemeinsamer Liquiditäts-Pool</li>
+                        <li>🤝 Risk-Sharing Mechanismen</li>
+                        <li>📊 Kollektive Investitionen</li>
+                        <li>💰 Profit-Sharing System</li>
+                        <li>📈 Pool-Balance Tracking</li>
+                        <li>🔄 Automatische Verteilung</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border: 2px solid #a855f7;">
+                    <h3>💎 TELADIA</h3>
+                    <ul class="feature-list">
+                        <li>⭐ Premium Banking Service</li>
+                        <li>🏢 Erweiterte Business-Tools</li>
+                        <li>📊 Advanced Analytics</li>
+                        <li>📈 Enterprise-Features</li>
+                        <li>🔐 Enhanced Security</li>
+                        <li>🌐 Global Multi-Currency</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border: 2px solid var(--secondary-color);">
+                    <h3>🔧 Technische Features</h3>
+                    <ul class="feature-list">
+                        <li>🔗 MetaMask Connection</li>
+                        <li>🌐 Multi-Chain Support (Ethereum, Polygon)</li>
+                        <li>💱 Automatic Conversion (Crypto ↔ Fiat)</li>
+                        <li>📱 Mobile Wallet Support</li>
+                        <li>🔐 2FA Authentication</li>
+                        <li>📜 Audit-Trail</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border: 2px solid var(--primary-color);">
+                    <h3>💼 Business-Features</h3>
+                    <ul class="feature-list">
+                        <li>📊 Investment-Portal</li>
+                        <li>💼 Portfolio-Management</li>
+                        <li>💰 Cash-Flow-Tracking</li>
+                        <li>📈 Growth-Analytics</li>
+                        <li>🏢 B2B-Integration</li>
+                        <li>📄 Invoice-Management</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="border: 2px solid var(--accent-color);">
+                    <h3>🌐 Integration</h3>
+                    <ul class="feature-list">
+                        <li>🔗 TogetherSystems Portal</li>
+                        <li>🚀 Startup Systems</li>
+                        <li>💰 Investor Portal</li>
+                        <li>📊 Business-Admin</li>
+                        <li>🔐 TPGA (Three T Platform Global Architecture)</li>
+                        <li>🌐 One Network Integration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 30px; background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(139, 92, 246, 0.1));">
+                <h3>📚 Vollständige Dokumentation</h3>
+                <p>
+                    Für detaillierte Informationen siehe: <strong>TELBANK-VOLLSTÄNDIGE-DOKUMENTATION.md</strong>
+                </p>
+                <p style="margin-top: 15px;">
+                    <strong>Status:</strong> ✅ Grundfunktionen verfügbar | 🚧 Erweiterte Features in Entwicklung
+                </p>
+                <p style="margin-top: 10px;">
+                    <strong>Portal:</strong> <a href="https://myopenai.github.io/togethersystems/index.html" target="_blank" style="color: #FFD700;">TogetherSystems Portal</a>
+                </p>
             </div>
         </div>
 

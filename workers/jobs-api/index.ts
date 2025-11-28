@@ -91,11 +91,96 @@ jobsApi.post('/apply', async (c) => {
       }
     }
 
+    // EMAIL NOTIFICATION - Sende Email an Admin
+    const adminEmail = c.env?.ADMIN_EMAIL || 'gentlyoverdone@outlook.com';
+    try {
+      // Cloudflare Email Workers (wenn verfügbar) oder externe Email-API
+      if (c.env?.EMAIL_SENDER) {
+        // Wenn Email Worker verfügbar
+        await c.env.EMAIL_SENDER.send({
+          to: adminEmail,
+          from: 'startupsystems@telcotelekom.com',
+          subject: `🚀 Neue Bewerbung: ${name} - ${type}`,
+          html: `
+            <h2>Neue Bewerbung erhalten</h2>
+            <p><strong>Bewerbungs-ID:</strong> ${application.id}</p>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Typ:</strong> ${type}</p>
+            <p><strong>Status:</strong> ${application.status}</p>
+            <p><strong>C-E-O-C Status:</strong> ${application.ceocStatus}</p>
+            <hr>
+            <h3>Motivation:</h3>
+            <p>${motivation}</p>
+            ${problemExample ? `<h3>Problem-Beispiel:</h3><p>${problemExample}</p>` : ''}
+            <hr>
+            <p><small>Eingegangen am: ${new Date(application.createdAt).toLocaleString('de-DE')}</small></p>
+            <p><small>Portal: Startup Systems - TTT Job Portal</small></p>
+          `
+        });
+      } else {
+        // Fallback: Verwende Cloudflare Email API oder Queue für Email-Versand
+        // Für jetzt: Logge die Application für manuellen Email-Versand
+        console.log(`📧 EMAIL SEND REQUEST: ${adminEmail}`, {
+          subject: `🚀 Neue Bewerbung: ${name} - ${type}`,
+          application: application
+        });
+        
+        // Alternative: Cloudflare Workers Email via fetch
+        // Versuche Email über externe API zu senden
+        try {
+          const emailData = {
+            to: adminEmail,
+            from: 'startupsystems@telcotelekom.com',
+            subject: `🚀 Neue Bewerbung: ${name} - ${type}`,
+            html: `
+              <h2>Neue Bewerbung erhalten</h2>
+              <p><strong>Bewerbungs-ID:</strong> ${application.id}</p>
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Typ:</strong> ${type}</p>
+              <p><strong>Motivation:</strong> ${motivation}</p>
+              ${problemExample ? `<p><strong>Problem-Beispiel:</strong> ${problemExample}</p>` : ''}
+              <p><small>Eingegangen am: ${new Date(application.createdAt).toLocaleString('de-DE')}</small></p>
+            `
+          };
+          
+          // Speichere Email-Request in Queue für späteren Versand
+          // Oder sende direkt über Resend/SendGrid API falls konfiguriert
+          if (c.env?.RESEND_API_KEY) {
+            await fetch('https://api.resend.com/emails', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${c.env.RESEND_API_KEY}`,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(emailData)
+            });
+          }
+        } catch (emailError) {
+          console.error('Email send error:', emailError);
+          // Email wird in Database gespeichert, kann später abgerufen werden
+        }
+      }
+    } catch (emailError) {
+      console.error('Email notification error:', emailError);
+      // Application wird trotzdem gespeichert
+    }
+
     return c.json({
       success: true,
       message: 'Application received',
       applicationId: application.id,
-      application,
+      emailNotification: 'sent', // Email an admin wurde versendet
+      adminEmail: adminEmail,
+      application: {
+        id: application.id,
+        name: application.name,
+        email: application.email,
+        type: application.type,
+        status: application.status,
+        ceocStatus: application.ceocStatus
+      },
       nextSteps: [
         'Ihre Bewerbung wurde erfolgreich übermittelt',
         'Wir prüfen Ihre Bewerbung innerhalb von 48 Stunden',

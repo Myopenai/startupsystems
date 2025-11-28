@@ -12,6 +12,7 @@ name = "startupsystems-staging"
 [vars]
 ENVIRONMENT = "development"
 JWT_SECRET = "gcc-secret-key-change-in-production-2025"
+ADMIN_EMAIL = "gentlyoverdone@outlook.com"
 
 # Cloudflare D1 Database binding
 # Using existing database "togethersystembackend" (empty, can be reused)

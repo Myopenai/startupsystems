@@ -40,8 +40,10 @@ jobs:
       - name: Build static site
         run: |
           mkdir -p _site
-          cp -r public/* _site/
-          cp README.md _site/index.md
+          # Copy public files
+          if [ -d "public" ]; then
+            cp -r public/* _site/ 2>/dev/null || true
+          fi
           # Create landing page
           cat > _site/index.html << 'EOF'
           <!DOCTYPE html>

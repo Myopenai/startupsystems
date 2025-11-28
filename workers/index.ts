@@ -14,6 +14,7 @@ import { indexHTML } from './html-templates/index';
 import { jobHTML } from './html-templates/job';
 import { investorHTML } from './html-templates/investor';
 import { togetherSystemsHTML } from './html-templates/togethersystems';
+import { yordyHTML } from './html-templates/yordy';
 
 // Initialize Hono app
 const app = new Hono();
@@ -36,6 +37,59 @@ app.get('/health', (c) => {
   });
 });
 
+// API routes - MUST be defined BEFORE catch-all route
+// API routes - Main Startup Systems API
+app.route('/api', apiRoutes);
+
+// GCC API routes - Global Central City Arrivals
+app.route('/api/gcc', gccApiRoutes);
+
+// Investor API routes - Z-Canvas Formeln, Produktionskosten, Investor-Szenarien
+app.route('/api/investor', investorApiRoutes);
+
+// Jobs API routes - TTT Job Portal, C-E-O-C Management
+app.route('/api/jobs', jobsApiRoutes);
+
+// API root endpoint
+app.get('/api', (c) => {
+  return c.json({
+    message: 'Startup Systems API',
+    availableEndpoints: [
+      '/api/status',
+      '/api/health',
+      '/api/users',
+      '/api/services',
+      '/api/gcc/health - GCC API Health',
+      '/api/gcc/auth/* - GCC Authentication',
+      '/api/gcc/startups/* - GCC Startups',
+      '/api/gcc/events/* - GCC Events',
+      '/api/gcc/ns/* - NS Train API',
+      '/api/gcc/analytics/* - GCC Analytics',
+      '/api/investor/health - Investor API Health',
+      '/api/investor/calculate/local - Z-Canvas Lokale Kapitalberechnung',
+      '/api/investor/calculate/global - Z-Canvas Globale BPP-Berechnung',
+      '/api/investor/calculate/production - Produktionskosten-Berechnung',
+      '/api/investor/calculate/time-index - Zeitkosten-Leitzahl',
+      '/api/investor/calculate/complete - Kombinierte Berechnung',
+      '/api/investor/scenarios - Investor-Szenarien-Rechner',
+      '/api/jobs/health - Jobs API Health',
+      '/api/jobs/apply - Job Application Submit',
+      '/api/jobs/applications - Get Applications (Admin)',
+      '/api/jobs/ceoc/active - Get Active C-E-O-C Members',
+      '/api/jobs/stats - Job Statistics'
+    ]
+  });
+});
+
+app.get('/api/status', (c) => {
+  return c.json({
+    service: 'startupsystems',
+    status: 'operational',
+    timestamp: new Date().toISOString(),
+    environment: c.env?.ENVIRONMENT || 'production'
+  });
+});
+
 // Serve static HTML files from public directory
 // For Cloudflare Workers, HTML files can be served via:
 // 1. Direct embedding (current approach - fetch from origin)
@@ -45,16 +99,6 @@ app.get('/health', (c) => {
 app.get('/*', async (c) => {
   const url = new URL(c.req.url);
   const path = url.pathname;
-  
-  // API routes - let them pass through (don't interfere)
-  if (path.startsWith('/api')) {
-    return;
-  }
-  
-  // Health check - let it pass through
-  if (path === '/health') {
-    return;
-  }
   
   // Serve embedded HTML templates
   const htmlTemplates: Record<string, string> = {
@@ -69,7 +113,13 @@ app.get('/*', async (c) => {
     '/togethersystems': togetherSystemsHTML,
     '/togethersystems/': togetherSystemsHTML,
     '/togethersystems/portal.html': togetherSystemsHTML,
+    '/YORDY-SHOWCASE-SIMPLE.html': yordyHTML,
   };
+  
+  // Handle YORDY showcase
+  if (path === '/YORDY-SHOWCASE-SIMPLE.html' || path === '/yordy' || path === '/yordy-showcase') {
+    return c.html(yordyHTML);
+  }
   
   const htmlContent = htmlTemplates[path];
   if (htmlContent) {
@@ -112,58 +162,6 @@ app.get('/*', async (c) => {
   
   // 404 for unknown paths
   return c.json({ error: 'Not Found', path }, 404);
-});
-
-// API routes - Main Startup Systems API
-app.route('/api', apiRoutes);
-
-// GCC API routes - Global Central City Arrivals
-app.route('/api/gcc', gccApiRoutes);
-
-// Investor API routes - Z-Canvas Formeln, Produktionskosten, Investor-Szenarien
-app.route('/api/investor', investorApiRoutes);
-
-// Jobs API routes - TTT Job Portal, C-E-O-C Management
-app.route('/api/jobs', jobsApiRoutes);
-
-
-app.get('/api', (c) => {
-  return c.json({
-    message: 'Startup Systems API',
-        availableEndpoints: [
-          '/api/status',
-          '/api/health',
-          '/api/users',
-          '/api/services',
-          '/api/gcc/health - GCC API Health',
-          '/api/gcc/auth/* - GCC Authentication',
-          '/api/gcc/startups/* - GCC Startups',
-          '/api/gcc/events/* - GCC Events',
-          '/api/gcc/ns/* - NS Train API',
-          '/api/gcc/analytics/* - GCC Analytics',
-          '/api/investor/health - Investor API Health',
-          '/api/investor/calculate/local - Z-Canvas Lokale Kapitalberechnung',
-          '/api/investor/calculate/global - Z-Canvas Globale BPP-Berechnung',
-          '/api/investor/calculate/production - Produktionskosten-Berechnung',
-          '/api/investor/calculate/time-index - Zeitkosten-Leitzahl',
-          '/api/investor/calculate/complete - Kombinierte Berechnung',
-          '/api/investor/scenarios - Investor-Szenarien-Rechner',
-          '/api/jobs/health - Jobs API Health',
-          '/api/jobs/apply - Job Application Submit',
-          '/api/jobs/applications - Get Applications (Admin)',
-          '/api/jobs/ceoc/active - Get Active C-E-O-C Members',
-          '/api/jobs/stats - Job Statistics'
-        ]
-  });
-});
-
-app.get('/api/status', (c) => {
-  return c.json({
-    service: 'startupsystems',
-    status: 'operational',
-    timestamp: new Date().toISOString(),
-    environment: c.env?.ENVIRONMENT || 'production'
-  });
 });
 
 // Error handling

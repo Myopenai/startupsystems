@@ -16,6 +16,7 @@ const htmlFiles = [
   { src: 'public/job/index.html', dest: 'workers/html-templates/job.ts', name: 'jobHTML' },
   { src: 'public/investor/index.html', dest: 'workers/html-templates/investor.ts', name: 'investorHTML' },
   { src: 'public/togethersystems/portal.html', dest: 'workers/html-templates/togethersystems.ts', name: 'togetherSystemsHTML' },
+  { src: 'YORDY-SHOWCASE-SIMPLE.html', dest: 'workers/html-templates/yordy.ts', name: 'yordyHTML' },
 ];
 
 // Ensure output directory exists

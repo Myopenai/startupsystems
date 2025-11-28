@@ -1,7 +1,7 @@
 /**
  * Auto-generated HTML template
  * Source: public/index.html
- * Generated: 2025-11-28T13:44:11.043Z
+ * Generated: 2025-11-28T13:49:51.076Z
  */
 
 export const indexHTML = `<!DOCTYPE html>
@@ -582,6 +582,228 @@ export const indexHTML = `<!DOCTYPE html>
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
         }
+
+        /* Company Core Banner Styles */
+        .company-core-banner {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 217, 255, 0.15));
+            border: 3px solid #00ff88;
+            border-radius: 20px;
+            padding: 35px;
+            margin: 40px 0;
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.3), 0 0 60px rgba(0, 217, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .company-core-banner::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, #00ff88, #00d9ff, #a855f7, #38bdf8);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.5;
+            animation: rotate 8s linear infinite;
+        }
+
+        .company-core-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .company-core-header h2 {
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+            background: linear-gradient(135deg, #00ff88, #00d9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        .company-core-badge {
+            background: linear-gradient(135deg, #00ff88, #00d9ff);
+            color: #0a0a0f;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.5);
+        }
+
+        .company-core-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .core-mission,
+        .core-capital,
+        .core-employees,
+        .core-error-recognition,
+        .core-philosophy {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #00ff88;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .core-mission h3,
+        .core-capital h3,
+        .core-employees h3,
+        .core-error-recognition h3,
+        .core-philosophy h3 {
+            color: #00ff88;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .core-mission p,
+        .core-capital p,
+        .core-employees p,
+        .core-error-recognition p,
+        .core-philosophy p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .core-mission strong,
+        .core-capital strong,
+        .core-employees strong,
+        .core-error-recognition strong,
+        .core-philosophy strong {
+            color: #00ff88;
+        }
+
+        .capital-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .principle-item {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+
+        .principle-item strong {
+            color: #00ff88;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .ceoc-explanation-core {
+            background: rgba(168, 85, 247, 0.1);
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .ceoc-explanation-core p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .ceoc-explanation-core strong {
+            color: #a855f7;
+        }
+
+        .ceoc-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .ceoc-principle-card {
+            background: rgba(168, 85, 247, 0.1);
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            border-radius: 10px;
+            padding: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .ceoc-principle-card:hover {
+            border-color: #a855f7;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3);
+        }
+
+        .ceoc-principle-card h4 {
+            color: #a855f7;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .ceoc-principle-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .error-recognition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .error-recognition-card {
+            background: rgba(56, 189, 248, 0.1);
+            border: 2px solid rgba(56, 189, 248, 0.3);
+            border-radius: 10px;
+            padding: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .error-recognition-card:hover {
+            border-color: #38bdf8;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.3);
+        }
+
+        .error-recognition-card h4 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .error-recognition-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .philosophy-quote {
+            background: rgba(139, 92, 246, 0.1);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            padding: 25px;
+            border-radius: 12px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .philosophy-quote p {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .philosophy-quote strong {
+            color: #8b5cf6;
+        }
     </style>
 </head>
 <body>
@@ -662,6 +884,136 @@ export const indexHTML = `<!DOCTYPE html>
     <div class="container">
         <h1>Startup Systems</h1>
         <p class="subtitle">Modern infrastructure for startups and innovation</p>
+
+        <!-- Unternehmens Kern-Bereich - PROMINENT -->
+        <div class="company-core-banner">
+            <div class="company-core-header">
+                <h2>🎯 Unser Unternehmens-Kern</h2>
+                <span class="company-core-badge">KAPITAL • MITARBEITER • FEHLER-RECOGNITION</span>
+            </div>
+            <div class="company-core-content">
+                <div class="company-core-main">
+                    <div class="core-mission">
+                        <h3>🎯 Unser Zielkern</h3>
+                        <p>
+                            Unser Betriebsunternehmen hat ein klares Ziel: <strong>Probleme zu erkennen</strong>, 
+                            daraufhin <strong>Formeln zu erstellen</strong> und mit diesen Formeln <strong>AI zu bedienen</strong>, 
+                            um <strong>Programme zu erstellen</strong>, die diese Probleme lösen.
+                        </p>
+                        <p style="margin-top: 15px;">
+                            <strong>Einfache Probleme, alltägliche Probleme</strong> – überall umgeben sie uns. 
+                            Viele denken nicht darüber nach. Aber wir tun es.
+                        </p>
+                    </div>
+
+                    <div class="core-capital">
+                        <h3>💎 Unternehmens-Kapital: Probleme als Wert</h3>
+                        <p>
+                            <strong>Das Problem selbst ist Kapital – wertvoller als Gold.</strong>
+                        </p>
+                        <p style="margin-top: 15px;">
+                            Lösungen werden programmiert, indem reale Alltagsprobleme sekündlich erkannt, 
+                            notiert und später technisch gelöst werden. Jedes erkannte Problem wird zu 
+                            einem <strong>wertvollen Asset</strong> – es ist die Grundlage für Innovation und Eigentum.
+                        </p>
+                        <div class="capital-principles">
+                            <div class="principle-item">
+                                <strong>🔍 Problem-Erkennung:</strong> Sekündliche Beobachtung des Alltags
+                            </div>
+                            <div class="principle-item">
+                                <strong>📝 Dokumentation:</strong> Systematische Notierung aller erkannten Probleme
+                            </div>
+                            <div class="principle-item">
+                                <strong>🧮 Formel-Entwicklung:</strong> Transformation von Problemen in mathematische/konzeptionelle Formeln
+                            </div>
+                            <div class="principle-item">
+                                <strong>🤖 AI-Integration:</strong> Nutzung von AI zur Problemlösung durch Programme
+                            </div>
+                            <div class="principle-item">
+                                <strong>💼 Eigentums-Generierung:</strong> Aus Formeln wird Eigentum – aus Problemen wird Kapital
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="core-employees">
+                        <h3>👥 Mitarbeiter: C-E-O-C (Center Edge of Circle)</h3>
+                        <div class="ceoc-explanation-core">
+                            <p>
+                                <strong>C-E-O-C: Center Edge of Circle</strong> sind Problemerkenner. 
+                                Sie können aus einfachen, alltäglichen Problemen leichte Formulierungen erstellen, 
+                                die als <strong>Formel</strong> dienen können, um AI zu bedienen, durch Programme 
+                                die Probleme zu lösen.
+                            </p>
+                            <p style="margin-top: 15px;">
+                                <strong>Einfache Ideen</strong> kommen zusammen in der Findung von Lösungen 
+                                für alltäglich uns umgebende Probleme.
+                            </p>
+                        </div>
+                        <div class="ceoc-principles">
+                            <div class="ceoc-principle-card">
+                                <h4>🎯 Problemerkenner</h4>
+                                <p>C-E-O-C erkennen Probleme dort, wo andere sie übersehen</p>
+                            </div>
+                            <div class="ceoc-principle-card">
+                                <h4>📐 Formel-Entwickler</h4>
+                                <p>Transformation von Alltagsproblemen in lösbare Formeln</p>
+                            </div>
+                            <div class="ceoc-principle-card">
+                                <h4>🔗 Verbinder</h4>
+                                <p>Einfache Ideen zusammenführen zu komplexen Lösungen</p>
+                            </div>
+                            <div class="ceoc-principle-card">
+                                <h4>⚡ Problemlöser</h4>
+                                <p>Nutzen von AI und Programmen zur effektiven Problemlösung</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="core-error-recognition">
+                        <h3>🔍 Fehler-Recognition: Problem-Erkennung als Kern-Kompetenz</h3>
+                        <p>
+                            <strong>Fehler-Recognition</strong> ist nicht nur Fehler-Findung – es ist die 
+                            <strong>systematische Erkennung von Problemen</strong>, die noch keine Fehler sind, 
+                            aber Potenzial für Verbesserung und Innovation haben.
+                        </p>
+                        <div class="error-recognition-grid">
+                            <div class="error-recognition-card">
+                                <h4>🔎 Proaktive Erkennung</h4>
+                                <p>Probleme erkennen, bevor sie zu Fehlern werden</p>
+                            </div>
+                            <div class="error-recognition-card">
+                                <h4>📊 Systematische Analyse</h4>
+                                <p>Strukturierte Dokumentation und Kategorisierung</p>
+                            </div>
+                            <div class="error-recognition-card">
+                                <h4>🔄 Kontinuierliche Verbesserung</h4>
+                                <p>Aus erkannten Problemen lernen und optimieren</p>
+                            </div>
+                            <div class="error-recognition-card">
+                                <h4>💡 Innovations-Treiber</h4>
+                                <p>Jedes Problem ist eine Chance für Innovation</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="core-philosophy">
+                        <h3>💭 Unsere Philosophie</h3>
+                        <div class="philosophy-quote">
+                            <p>
+                                <strong>"AI ist der Mensch, der bessere Antworten gibt, als jede AI in Zukunft geben kann."</strong>
+                            </p>
+                            <p style="margin-top: 15px; font-size: 0.95rem;">
+                                Darum sind die Problemfinder, Problemlöser, die Menschen, die Formeln entwickeln, 
+                                auf der einfachsten Weise – <strong>mit Zahlen oder mit Worten</strong>. 
+                                Wir spielen am liebsten mit Worten, daraus ergeben sich Zahlen, 
+                                in dem man bedenken kann, wie viele Buchstaben jedes Wort gehabt hat, 
+                                in dem ganzen Sinn. So geht man vor – <strong>logisch, in der Programmierung durch AI zu befüttern mit Problemen</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- TPGA Core Info Banner - PROMINENT -->
         <div class="tpga-core-banner">

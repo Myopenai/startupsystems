@@ -1,7 +1,7 @@
 /**
  * Auto-generated HTML template
  * Source: public/togethersystems/portal.html
- * Generated: 2025-11-28T13:44:11.073Z
+ * Generated: 2025-11-28T13:49:51.104Z
  */
 
 export const togetherSystemsHTML = `<!DOCTYPE html>

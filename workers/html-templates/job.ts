@@ -1,7 +1,7 @@
 /**
  * Auto-generated HTML template
  * Source: public/job/index.html
- * Generated: 2025-11-28T13:44:11.067Z
+ * Generated: 2025-11-28T13:49:51.096Z
  */
 
 export const jobHTML = `<!DOCTYPE html>

@@ -1,7 +1,7 @@
 /**
  * Auto-generated HTML template
  * Source: public/investor/index.html
- * Generated: 2025-11-28T13:44:11.071Z
+ * Generated: 2025-11-28T13:49:51.101Z
  */
 
 export const investorHTML = `<!DOCTYPE html>

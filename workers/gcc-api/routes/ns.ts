@@ -48,6 +48,6 @@ ns.get('/departures/:station', async (c) => {
   }
 });
 
-export { nsRoutes };
+export const nsRoutes = ns;
 export default ns;
 

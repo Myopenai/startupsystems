@@ -61,6 +61,6 @@ analytics.get('/summary', authenticateAdmin, async (c) => {
   }
 });
 
-export { analyticsRoutes };
+export const analyticsRoutes = analytics;
 export default analytics;
 

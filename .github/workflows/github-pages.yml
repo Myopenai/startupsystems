@@ -1,0 +1,166 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build HTML templates
+        run: npm run build:html
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Build static site
+        run: |
+          mkdir -p _site
+          cp -r public/* _site/
+          cp README.md _site/index.md
+          # Create landing page
+          cat > _site/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="de">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Startup Systems - Live Application</title>
+            <style>
+              * { margin: 0; padding: 0; box-sizing: border-box; }
+              body {
+                font-family: system-ui, -apple-system, sans-serif;
+                background: linear-gradient(135deg, #0a0a0f 0%, #050508 100%);
+                color: #fff;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+              }
+              .container {
+                max-width: 800px;
+                text-align: center;
+              }
+              h1 {
+                font-size: 3rem;
+                margin-bottom: 20px;
+                background: linear-gradient(135deg, #00ff88, #00d9ff);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+              }
+              .links {
+                display: grid;
+                gap: 20px;
+                margin-top: 40px;
+              }
+              .link-card {
+                background: rgba(255, 255, 255, 0.1);
+                border: 2px solid rgba(0, 255, 136, 0.3);
+                border-radius: 16px;
+                padding: 30px;
+                text-decoration: none;
+                color: #fff;
+                transition: all 0.3s;
+              }
+              .link-card:hover {
+                border-color: #00ff88;
+                transform: translateY(-5px);
+                box-shadow: 0 10px 40px rgba(0, 255, 136, 0.3);
+              }
+              .link-card h2 { color: #00ff88; margin-bottom: 10px; }
+              .badge {
+                display: inline-block;
+                background: #00ff88;
+                color: #0a0a0f;
+                padding: 4px 12px;
+                border-radius: 8px;
+                font-size: 0.8rem;
+                font-weight: bold;
+                margin-bottom: 10px;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <h1>🚀 Startup Systems</h1>
+              <p style="font-size: 1.2rem; color: rgba(255,255,255,0.7); margin-bottom: 20px;">
+                Live Application auf Cloudflare Workers
+              </p>
+              <div class="links">
+                <a href="https://startupsystems.telcotelekom.workers.dev/" class="link-card">
+                  <span class="badge">🌐 LIVE</span>
+                  <h2>Main Portal</h2>
+                  <p>Startup Systems Hauptportal</p>
+                </a>
+                <a href="https://startupsystems.telcotelekom.workers.dev/job/" class="link-card">
+                  <span class="badge">💼 LIVE</span>
+                  <h2>TTT Job Portal</h2>
+                  <p>Global Universal Space License • C-E-O-C</p>
+                </a>
+                <a href="https://startupsystems.telcotelekom.workers.dev/investor/" class="link-card">
+                  <span class="badge">💰 LIVE</span>
+                  <h2>Investor Portal</h2>
+                  <p>Z-Canvas Kapitalformeln & Berechnungen</p>
+                </a>
+                <a href="https://startupsystems.telcotelekom.workers.dev/togethersystems/" class="link-card">
+                  <span class="badge">🌐 LIVE</span>
+                  <h2>TogetherSystems Portal</h2>
+                  <p>TTT Portal & Migration</p>
+                </a>
+                <a href="https://startupsystems.telcotelekom.workers.dev/api" class="link-card">
+                  <span class="badge">🔌 API</span>
+                  <h2>API Endpoints</h2>
+                  <p>REST API Dokumentation</p>
+                </a>
+                <a href="https://github.com/Myopenai/startupsystems" class="link-card" style="border-color: rgba(148, 163, 184, 0.3);">
+                  <span class="badge" style="background: #8B5CF6;">📚</span>
+                  <h2 style="color: #8B5CF6;">GitHub Repository</h2>
+                  <p>Source Code & Dokumentation</p>
+                </a>
+              </div>
+            </div>
+          </body>
+          </html>
+          EOF
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+

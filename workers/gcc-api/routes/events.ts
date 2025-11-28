@@ -120,6 +120,6 @@ events.post('/:id/register', authenticate, async (c) => {
   }
 });
 
-export { eventRoutes };
+export const eventRoutes = events;
 export default events;
 

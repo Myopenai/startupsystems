@@ -1,0 +1,171 @@
+/**
+ * Auto-generated HTML template
+ * Source: public/index.html
+ * Generated: 2025-11-28T12:54:39.718Z
+ */
+
+export const indexHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Systems - Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #050508 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00ff88, #00d9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 60px;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .nav-card {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 217, 255, 0.1));
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .nav-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.3);
+        }
+
+        .nav-card.featured {
+            border-color: #38bdf8;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(168, 85, 247, 0.2));
+        }
+
+        .nav-card.featured:hover {
+            border-color: #38bdf8;
+            box-shadow: 0 10px 40px rgba(56, 189, 248, 0.4);
+        }
+
+        .nav-card h2 {
+            color: #00ff88;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .nav-card.featured h2 {
+            color: #38bdf8;
+        }
+
+        .nav-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #00ff88, #00d9ff);
+            color: #0a0a0f;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .job-featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(168, 85, 247, 0.15));
+            border: 3px solid #38bdf8;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Startup Systems</h1>
+        <p class="subtitle">Modern infrastructure for startups and innovation</p>
+
+        <!-- Navigation Grid -->
+        <div class="nav-grid">
+            <!-- PROMINENT: TTT Job Portal -->
+            <a href="/job/" class="nav-card featured job-featured">
+                <h2>💼 TTT Job Portal</h2>
+                <p><strong>Global Universal Space License • C-E-O-C</strong></p>
+                <p style="margin-top: 8px; font-size: 0.85rem; color: rgba(255, 255, 255, 0.8);">
+                    Aus Problemen werden Formeln. Aus Formeln wird Eigentum.<br>
+                    Center Edge of Circle - Bestimmend über alle Prozesse, Produkte, Kapazität.
+                </p>
+                <p style="margin-top: 12px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #38bdf8;">
+                    🔴 AKTIVE KAMPAGNE • GLOBAL & KULTURÜBERGREIFEND
+                </p>
+            </a>
+
+            <a href="/investor/" class="nav-card">
+                <h2>💰 Investor Portal</h2>
+                <p>Z-Canvas Kapitalformeln & Berechnungen</p>
+            </a>
+
+            <a href="/api" class="nav-card">
+                <h2>🔌 API</h2>
+                <p>Startup Systems API Endpoints</p>
+            </a>
+
+            <a href="/api/gcc" class="nav-card">
+                <h2>🚂 GCC Portal</h2>
+                <p>Global Central City Arrivals</p>
+            </a>
+
+            <a href="/togethersystems/" class="nav-card">
+                <h2>🌐 TogetherSystems</h2>
+                <p>TTT Portal & Migration</p>
+            </a>
+
+            <a href="/YORDY-SHOWCASE-SIMPLE.html" class="nav-card">
+                <h2>🎨 YORDY Showcase</h2>
+                <p>MicroLED Quality Artist Presentation</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
+`;

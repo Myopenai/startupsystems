@@ -1,0 +1,20 @@
+{
+  "name": "startupsystems-playwright-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright Test Suite für Startup Systems Portal",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:investor": "playwright test tests/startupsystems-investor.spec.ts",
+    "test:api": "playwright test tests/startupsystems-api.spec.ts",
+    "test:main": "playwright test tests/startupsystems-main.spec.ts",
+    "test:report": "playwright test --reporter=html && playwright show-report",
+    "codegen": "playwright codegen"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.0",
+    "typescript": "^5.0.0"
+  }
+}

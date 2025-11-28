@@ -1,6 +1,19 @@
-# Startup Systems
+# 🚀 Startup Systems
+
+**Live Application:** [🌐 https://startupsystems.telcotelekom.workers.dev](https://startupsystems.telcotelekom.workers.dev)
 
 Modern, scalable startup system infrastructure with Cloudflare Workers integration.
+
+## 🌐 Live Application
+
+**Alle Portale sind LIVE auf Cloudflare Workers:**
+
+- 🏠 [**Main Portal**](https://startupsystems.telcotelekom.workers.dev/) - Startup Systems Hauptportal
+- 💼 [**TTT Job Portal**](https://startupsystems.telcotelekom.workers.dev/job/) - Global Universal Space License • C-E-O-C
+- 💰 [**Investor Portal**](https://startupsystems.telcotelekom.workers.dev/investor/) - Z-Canvas Kapitalformeln & Berechnungen
+- 🌐 [**TogetherSystems Portal**](https://startupsystems.telcotelekom.workers.dev/togethersystems/) - TTT Portal & Migration
+- 🔌 [**API Endpoints**](https://startupsystems.telcotelekom.workers.dev/api) - REST API Dokumentation
+- ❤️ [**Health Check**](https://startupsystems.telcotelekom.workers.dev/health) - System Status
 
 ## Features
 
@@ -11,6 +24,8 @@ Modern, scalable startup system infrastructure with Cloudflare Workers integrati
 - 🔒 **Security First** - Best practices built-in
 - 🚂 **GCC Integration** - Global Central City Arrivals API (Startup Hub Portal)
 - 🎨 **YORDY Artist Showcase** - MicroLED Quality Artist Presentation
+- 💼 **TTT Job Portal** - Global Universal Space License Campaign
+- 💰 **Investor Portal** - Z-Canvas Economic Formulas & Production Cost Calculations
 
 ## Quick Start
 
@@ -90,10 +105,13 @@ MIT License - see LICENSE file for details
 
 ---
 
-**Status**: 🟢 Active Development  
+**Status**: 🟢 **LIVE ONLINE**  
 **Version**: 1.0.0  
-**Cloudflare Workers**: ✅ Live Online  
-**GCC Integration**: ✅ Fully Implemented
+**Cloudflare Workers**: ✅ [Live auf Cloudflare Edge](https://startupsystems.telcotelekom.workers.dev)  
+**GitHub Pages**: ✅ [Live Landing Page](https://myopenai.github.io/startupsystems/) (nach Aktivierung)  
+**GCC Integration**: ✅ Fully Implemented  
+**Job Portal**: ✅ Live & Active Campaign  
+**Investor Portal**: ✅ Z-Canvas Formulas Live
 
 ---
 

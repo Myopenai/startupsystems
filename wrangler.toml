@@ -1,7 +1,6 @@
 name = "startupsystems"
 main = "workers/index.ts"
-compatibility_date = "2024-01-01"
-compatibility_flags = ["nodejs_compat"]
+compatibility_date = "2024-11-26"
 
 [env.production]
 name = "startupsystems-prod"
@@ -15,15 +14,14 @@ ENVIRONMENT = "development"
 JWT_SECRET = "gcc-secret-key-change-in-production-2025"
 
 # Cloudflare D1 Database binding
+# Using existing database "togethersystembackend" (empty, can be reused)
 [[d1_databases]]
 binding = "DB"
-database_name = "startupsystems-db"
-database_id = "" # Set this after creating the database
+database_name = "togethersystembackend"
+database_id = "8a9c3e5a-d79c-4a1b-9a7e-07689eeef16b"
 
-[build]
-command = "npm run build:workers"
-
-[[rules]]
-type = "Text"
-globs = ["**/*.ts", "**/*.js"]
-fallthrough = true
+# Assets binding for static files (HTML, CSS, JS, images)
+# Note: For Workers, use R2 or Workers Sites for production
+# This configuration enables serving static files from the public/ directory
+[site]
+bucket = "./public"

@@ -92,6 +92,6 @@ startups.post('/', authenticate, async (c) => {
   }
 });
 
-export { startupRoutes };
+export const startupRoutes = startups;
 export default startups;
 
